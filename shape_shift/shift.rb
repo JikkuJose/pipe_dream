@@ -20,9 +20,14 @@ module ShapeShift
         "Content-Type" => "application/json"
       }
 
-      response = Unirest.post 'https://shapeshift.io/shift',
-        parameters: parameters,
-        headers: headers
+      begin
+        response = Unirest.post 'https://shapeshift.io/shift',
+          parameters: parameters,
+          headers: headers
+      rescue Exception => e
+        puts e.message
+        exit
+      end
 
       response.body
     end

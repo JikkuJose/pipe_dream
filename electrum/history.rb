@@ -3,7 +3,7 @@ require 'json'
 module Electrum
   class History
     def self.valid_transaction
-      lambda { |tx| tx["date"] == "----" }
+      lambda { |tx| tx["timestamp"] != false }
     end
 
     def self.list
@@ -11,11 +11,11 @@ module Electrum
     end
 
     def self.confirmed
-      list.reject(&valid_transaction)
+     list.select(&valid_transaction)
     end
 
     def self.unconfirmed
-      list.select(&valid_transaction)
+      list.reject(&valid_transaction)
     end
 
     def self.all
