@@ -6,5 +6,3 @@ require 'logger'
 require 'dotenv'
 
 Dotenv.load
-
-logger = Logger.new('development.log')
