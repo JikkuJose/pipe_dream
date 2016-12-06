@@ -1,8 +1,5 @@
-require_relative './electrum/transaction.rb'
-require_relative './electrum/address.rb'
-require_relative './electrum/history.rb'
-require_relative './shape_shift/shift.rb'
-require_relative './shape_shift/status.rb'
+require_relative './electrum.rb'
+require_relative './shape_shift.rb'
 require 'json'
 require 'awesome_print'
 require 'logger'
@@ -10,19 +7,14 @@ require 'dotenv'
 
 Dotenv.load
 
-WITHDRAW_ADDRESS = ENV['WITHDRAW_ADDRESS']
-RETURN_ADDRESS = ENV["RETURN_ADDRESSES"].split.sample
-
 logger = Logger.new('development.log')
 
-# ap Electrum::History::unconfirmed
-ap ShapeShift::status address: ENV["DEPOSIT_ADDRESS"]
-
+ap Electrum::balance
 # ss_withdraw_request = ShapeShift::Shift.new(
 #   from: 'BTC',
 #   to: 'ETH',
-#   withdrawAddress: HOLDING_ADDRESS,
-#   returnAddress: RETURN_ADDRESS
+#   withdraw_address: ENV['WITHDRAW_ADDRESS'],
+#   return_address: ENV["RETURN_ADDRESSES"].split.sample
 # ).request
 #
 # ap ss_withdraw_request
