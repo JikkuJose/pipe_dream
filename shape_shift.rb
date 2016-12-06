@@ -1,6 +1,6 @@
 require_relative './shape_shift/shift.rb'
 require_relative './shape_shift/status.rb'
-require_relative './shape_shift/deposit_limit.rb'
+require_relative './shape_shift/deposit.rb'
 require_relative './shape_shift/exchange_rate.rb'
 require_relative './shape_shift/coins.rb'
 require_relative './shape_shift/email_receipt.rb'

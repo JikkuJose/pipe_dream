@@ -5,6 +5,7 @@ module ShapeShift
     exchange_rate: 'https://shapeshift.io/rate/',
     coins: 'https://shapeshift.io/getcoins',
     email_receipt: 'https://shapeshift.io/mail',
-    shift: 'https://shapeshift.io/shift'
+    shift: 'https://shapeshift.io/shift',
+    deposit_status: 'https://shapeshift.io/txStat/'
   }
 end
