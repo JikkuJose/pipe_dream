@@ -11,11 +11,11 @@ module Electrum
     end
 
     def self.confirmed
-      list.reject { |tx| tx["date"] == "----" }
+      list.reject(&valid_transaction)
     end
 
     def self.unconfirmed
-      list.select { |tx| tx["date"] == "----" }
+      list.select(&valid_transaction)
     end
 
     def self.all
