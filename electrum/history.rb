@@ -17,5 +17,9 @@ module Electrum
     def self.unconfirmed
       list.select { |tx| tx["date"] == "----" }
     end
+
+    def self.all
+      list
+    end
   end
 end
