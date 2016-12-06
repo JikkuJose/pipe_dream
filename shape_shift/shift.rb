@@ -2,18 +2,18 @@ require 'unirest'
 
 module ShapeShift
   class Shift
-    def initialize(from:, to:, withdrawAddress:, returnAddress:)
+    def initialize(from:, to:, withdraw_address:, return_address:)
       @from = from.downcase
       @to = to.downcase
-      @withdrawAddress = withdrawAddress
-      @returnAddress = returnAddress
+      @withdraw_address = withdraw_address
+      @return_address = return_address
     end
 
     def request
       parameters = {
-        withdrawal: "#{ETH_ACCOUNT}",
+        withdrawal: "#{@withdraw_address}",
         pair: "#{@from}_#{@to}",
-        returnAddress: "#{BTC_ACCOUNT}"
+        returnAddress: "#{@return_address}"
       }
 
       headers = {
