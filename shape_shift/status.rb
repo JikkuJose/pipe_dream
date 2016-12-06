@@ -1,9 +1,8 @@
 require 'unirest'
+require_relative './constants.rb'
 
 module ShapeShift
-  URL = 'https://shapeshift.io/txStat/'
-
   def self.status(address:)
-    Unirest.get(URL + address).body
+    Unirest.get(URL[:status] + address).body
   end
 end
